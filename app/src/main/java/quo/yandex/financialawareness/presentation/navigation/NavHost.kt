@@ -18,11 +18,11 @@ enum class Destination(
     val icon: Int,
     val contentDescription: String
 ) {
-    EXPENSES("expanses", "Расходы", R.drawable.downtrend, "Расходы"),
-    INCOME("income", "Доходы", R.drawable.uptrend, "Доходы"),
-    ACCOUNT("account", "Счёт", R.drawable.calculator, "Счёт"),
-    CATEGORIES("categories", "Статьи", R.drawable.bar_chart_side, "Статьи"),
-    SETTINGS("settings", "Настройки", R.drawable.settings, "Настройки"),
+    EXPENSES("expanses", "Расходы", R.drawable.ic_downtrend, "Расходы"),
+    INCOME("income", "Доходы", R.drawable.ic_uptrend, "Доходы"),
+    ACCOUNT("account", "Счёт", R.drawable.ic_calculator, "Счёт"),
+    CATEGORIES("categories", "Статьи", R.drawable.ic_bar_chart_side, "Статьи"),
+    SETTINGS("settings", "Настройки", R.drawable.ic_settings, "Настройки"),
 }
 
 
