@@ -29,44 +29,42 @@ import quo.yandex.financialawareness.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AccountScreen(modifier: Modifier = Modifier) {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Scaffold(
-            topBar = {
-                CenterAlignedTopAppBar(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = Color(0xFF2AE881),
-                        titleContentColor = Color(0xFF1D1B20),
-                    ),
-                    title = {
-                        Text(
-                            "Мой счёт",
-                            maxLines = 1,
-                        )
-                    },
-                    actions = {
-                        IconButton(
-                            onClick = { },
-                            content = {
-                                Image(
-                                    painterResource(R.drawable.ic_edit),
-                                    contentDescription = "Редактировать",
-                                    contentScale = ContentScale.Crop,
-                                    modifier = Modifier.size(24.dp)
-                                )
-                            }
-                        )
-                    },
-                )
-            },
-        ) { contentPadding ->
-            Column(
-                modifier = Modifier.fillMaxSize().padding(contentPadding),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Text("Account Screen")
-            }
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                modifier = Modifier.fillMaxWidth(),
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0xFF2AE881),
+                    titleContentColor = Color(0xFF1D1B20),
+                ),
+                title = {
+                    Text(
+                        "Мой счёт",
+                        maxLines = 1,
+                    )
+                },
+                actions = {
+                    IconButton(
+                        onClick = { },
+                        content = {
+                            Image(
+                                painterResource(R.drawable.ic_edit),
+                                contentDescription = "Редактировать",
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
+                    )
+                },
+            )
+        },
+    ) { contentPadding ->
+        Column(
+            modifier = Modifier.fillMaxSize().padding(contentPadding),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text("Account Screen")
         }
     }
 }

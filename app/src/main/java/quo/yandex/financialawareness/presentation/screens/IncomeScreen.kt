@@ -35,46 +35,44 @@ fun IncomeScreen(modifier: Modifier = Modifier) {
     val periods = listOf("сегодня", "неделю", "месяц", "год", "всё время")
     var selectedPeriod by rememberSaveable { mutableIntStateOf(0) }
 
-    Box(modifier = Modifier.fillMaxSize()) {
-        Scaffold(
-            topBar = {
-                CenterAlignedTopAppBar(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = Color(0xFF2AE881),
-                        titleContentColor = Color(0xFF1D1B20),
-                    ),
-                    title = {
-                        Text(
-                            "Доходы за ${periods[selectedPeriod]}",
-                            maxLines = 1,
-                        )
-                    },
-                    actions = {
-                        IconButton(
-                            onClick = {
-                                selectedPeriod = (selectedPeriod + 1) % periods.size
-                            },
-                            content = {
-                                Image(
-                                    painterResource(R.drawable.ic_history),
-                                    contentDescription = "История",
-                                    contentScale = ContentScale.Crop,
-                                    modifier = Modifier.size(24.dp)
-                                )
-                            }
-                        )
-                    },
-                )
-            },
-        ) { contentPadding ->
-            Column(
-                modifier = Modifier.fillMaxSize().padding(contentPadding),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Text("Income Screen")
-            }
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                modifier = Modifier.fillMaxWidth(),
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0xFF2AE881),
+                    titleContentColor = Color(0xFF1D1B20),
+                ),
+                title = {
+                    Text(
+                        "Доходы за ${periods[selectedPeriod]}",
+                        maxLines = 1,
+                    )
+                },
+                actions = {
+                    IconButton(
+                        onClick = {
+                            selectedPeriod = (selectedPeriod + 1) % periods.size
+                        },
+                        content = {
+                            Image(
+                                painterResource(R.drawable.ic_history),
+                                contentDescription = "История",
+                                contentScale = ContentScale.Crop,
+                                modifier = Modifier.size(24.dp)
+                            )
+                        }
+                    )
+                },
+            )
+        },
+    ) { contentPadding ->
+        Column(
+            modifier = Modifier.fillMaxSize().padding(contentPadding),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text("Income Screen")
         }
     }
 }

@@ -21,31 +21,29 @@ import androidx.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoriesScreen(modifier: Modifier = Modifier) {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Scaffold(
-            topBar = {
-                CenterAlignedTopAppBar(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = Color(0xFF2AE881),
-                        titleContentColor = Color(0xFF1D1B20),
-                    ),
-                    title = {
-                        Text(
-                            "Мои статьи",
-                            maxLines = 1,
-                        )
-                    },
-                )
-            },
-        ) { contentPadding ->
-            Column(
-                modifier = Modifier.fillMaxSize().padding(contentPadding),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-            ) {
-                Text("Categories Screen")
-            }
+    Scaffold(
+        topBar = {
+            CenterAlignedTopAppBar(
+                modifier = Modifier.fillMaxWidth(),
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = Color(0xFF2AE881),
+                    titleContentColor = Color(0xFF1D1B20),
+                ),
+                title = {
+                    Text(
+                        "Мои статьи",
+                        maxLines = 1,
+                    )
+                },
+            )
+        },
+    ) { contentPadding ->
+        Column(
+            modifier = Modifier.fillMaxSize().padding(contentPadding),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            Text("Categories Screen")
         }
     }
 }

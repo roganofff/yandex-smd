@@ -86,23 +86,10 @@ fun AppScreen(modifier: Modifier = Modifier) {
                 }
             },
         ) { innerPadding ->
-            TransparentStatusBarBackground(Color(0xFF2AE881))
-            Box(modifier = Modifier.padding(innerPadding)) {
+            Box(modifier = Modifier) {
                 AppNavHost(navController, startDestination)
+                println(innerPadding)
             }
         }
     }
-}
-
-@Composable
-fun TransparentStatusBarBackground(color: Color) {
-    val topPadding = WindowInsets.statusBars
-        .asPaddingValues()
-        .calculateTopPadding()
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(topPadding)
-            .background(color)
-    )
 }
