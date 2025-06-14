@@ -1,4 +1,4 @@
-package quo.yandex.financialawareness.ui.theme
+package quo.yandex.financialawareness.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
