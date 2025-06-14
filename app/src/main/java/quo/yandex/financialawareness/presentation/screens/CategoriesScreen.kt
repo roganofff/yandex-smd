@@ -13,6 +13,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -22,11 +26,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import quo.yandex.financialawareness.data.provideCategoriesMockData
 import quo.yandex.financialawareness.presentation.ui.components.ListItem
+import quo.yandex.financialawareness.presentation.ui.components.SearchField
 
 @Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CategoriesScreen(modifier: Modifier = Modifier) {
+    var query by rememberSaveable { mutableStateOf("") }
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -48,12 +55,22 @@ fun CategoriesScreen(modifier: Modifier = Modifier) {
             )
         },
     ) { contentPadding ->
-        
         LazyColumn(
-            modifier = Modifier.fillMaxSize().padding(contentPadding),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(contentPadding),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
         ) {
+            item {
+                SearchField(query)
+                HorizontalDivider(
+                    modifier = Modifier.fillMaxWidth(),
+                    thickness = 1.dp,
+                    color = Color(0xFFCAC4D0)
+                )
+            }
+
             items(provideCategoriesMockData()) { item ->
                 ListItem(
                     title = item.title,
