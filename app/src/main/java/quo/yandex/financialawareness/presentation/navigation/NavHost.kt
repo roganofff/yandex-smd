@@ -11,6 +11,7 @@ import quo.yandex.financialawareness.presentation.screens.CategoriesScreen
 import quo.yandex.financialawareness.presentation.screens.ExpensesScreen
 import quo.yandex.financialawareness.presentation.screens.IncomeScreen
 import quo.yandex.financialawareness.presentation.screens.SettingsScreen
+import quo.yandex.financialawareness.presentation.screens.SplashScreen
 
 enum class Destination(
     val route: String,
@@ -36,6 +37,13 @@ fun AppNavHost(
         navController,
         startDestination = startDestination.route
     ) {
+        composable("splash") {
+            SplashScreen {
+                navController.navigate(Destination.EXPENSES.route) {
+                    popUpTo("splash") { inclusive = true }
+                }
+            }
+        }
         Destination.entries.forEach { destination ->
             composable(destination.route) {
                 when (destination) {
