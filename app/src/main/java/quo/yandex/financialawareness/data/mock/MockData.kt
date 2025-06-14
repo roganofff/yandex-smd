@@ -1,4 +1,4 @@
-package quo.yandex.financialawareness.data
+package quo.yandex.financialawareness.data.mock
 
 import quo.yandex.financialawareness.R
 

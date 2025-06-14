@@ -30,7 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import quo.yandex.financialawareness.R
-import quo.yandex.financialawareness.data.provideIncomeMockData
+import quo.yandex.financialawareness.data.mock.provideIncomeMockData
 import quo.yandex.financialawareness.presentation.ui.components.FloatingButton
 import quo.yandex.financialawareness.presentation.ui.components.ListItem
 

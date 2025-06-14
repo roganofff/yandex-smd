@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import quo.yandex.financialawareness.data.provideCategoriesMockData
+import quo.yandex.financialawareness.data.mock.provideCategoriesMockData
 import quo.yandex.financialawareness.presentation.ui.components.ListItem
 import quo.yandex.financialawareness.presentation.ui.components.SearchField
 
