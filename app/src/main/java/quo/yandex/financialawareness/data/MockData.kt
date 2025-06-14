@@ -87,3 +87,117 @@ fun provideExpensesMockData() = listOf(
         isLeading = false,
     )
 )
+
+fun provideIncomeMockData() = listOf(
+    ItemData(
+        title = "Всего",
+        comment = null,
+        price = "600 000 ₽",
+        leadIcon = null,
+        trailIcon = null,
+        isLeading = true,
+    ),
+    ItemData(
+        title = "Зарплата",
+        comment = null,
+        price = "500 000 ₽",
+        leadIcon = null,
+        trailIcon = R.drawable.ic_more_vert,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Подработка",
+        comment = null,
+        price = "100 000 ₽",
+        leadIcon = null,
+        trailIcon = R.drawable.ic_more_vert,
+        isLeading = false,
+    ),
+)
+
+fun provideAccountMockData() = listOf(
+    ItemData(
+        title = "Баланс",
+        comment = null,
+        price = "-670 000 ₽",
+        leadIcon = "\uD83D\uDCB0",
+        trailIcon = R.drawable.ic_more_vert,
+        isLeading = true,
+    ),
+    ItemData(
+        title = "Валюта",
+        comment = null,
+        price = "₽",
+        leadIcon = null,
+        trailIcon = R.drawable.ic_more_vert,
+        isLeading = true,
+    ),
+)
+
+fun provideCategoriesMockData() = listOf(
+    ItemData(
+        title = "Аренда квартиры",
+        comment = null,
+        price = null,
+        leadIcon = "\uD83C\uDFE1",
+        trailIcon = null,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Одежда",
+        comment = null,
+        price = null,
+        leadIcon = "\uD83D\uDC57",
+        trailIcon = null,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "На собачку",
+        comment = null,
+        price = null,
+        leadIcon = "\uD83D\uDC36",
+        trailIcon = null,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "На собачку",
+        comment = null,
+        price = null,
+        leadIcon = "\uD83D\uDC36",
+        trailIcon = null,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Ремонт квартиры",
+        comment = null,
+        price = null,
+        leadIcon = "РК",
+        trailIcon = null,
+        isLeading = false,
+        isEmojiIcon = false,
+    ),
+    ItemData(
+        title = "Продукты",
+        comment = null,
+        price = null,
+        leadIcon = "\uD83C\uDF6D",
+        trailIcon = null,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Спортзал",
+        comment = null,
+        price = null,
+        leadIcon = "\uD83C\uDFCB\uFE0F",
+        trailIcon = null,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Медицина",
+        comment = null,
+        price = null,
+        leadIcon = "\uD83D\uDC8A",
+        trailIcon = null,
+        isLeading = false,
+    )
+)
