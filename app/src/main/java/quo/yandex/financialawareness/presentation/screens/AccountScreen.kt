@@ -21,8 +21,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import quo.yandex.financialawareness.R
 import quo.yandex.financialawareness.data.provideAccountMockData
 import quo.yandex.financialawareness.presentation.ui.components.FloatingButton
@@ -45,6 +47,10 @@ fun AccountScreen(modifier: Modifier = Modifier) {
                     Text(
                         "Мой счёт",
                         maxLines = 1,
+                        fontSize = 22.sp,
+                        lineHeight = 28.sp,
+                        letterSpacing = 0.sp,
+                        fontWeight = FontWeight(400),
                     )
                 },
                 actions = {

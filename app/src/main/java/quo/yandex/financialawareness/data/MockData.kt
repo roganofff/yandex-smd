@@ -201,3 +201,70 @@ fun provideCategoriesMockData() = listOf(
         isLeading = false,
     )
 )
+
+fun provideSettings() = listOf(
+    ItemData(
+        title = "Тёмная тема",
+        comment = null,
+        price = null,
+        leadIcon = null,
+        trailIcon = R.drawable.mock_switch,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Основной цвет",
+        comment = null,
+        price = null,
+        leadIcon = null,
+        trailIcon = R.drawable.ic_arrow_right,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Звуки",
+        comment = null,
+        price = null,
+        leadIcon = null,
+        trailIcon = R.drawable.ic_arrow_right,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Хаптики",
+        comment = null,
+        price = null,
+        leadIcon = null,
+        trailIcon = R.drawable.ic_arrow_right,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Код пароль",
+        comment = null,
+        price = null,
+        leadIcon = null,
+        trailIcon = R.drawable.ic_arrow_right,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Синхронизация",
+        comment = null,
+        price = null,
+        leadIcon = null,
+        trailIcon = R.drawable.ic_arrow_right,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "Язык",
+        comment = null,
+        price = null,
+        leadIcon = null,
+        trailIcon = R.drawable.ic_arrow_right,
+        isLeading = false,
+    ),
+    ItemData(
+        title = "О программе",
+        comment = null,
+        price = null,
+        leadIcon = null,
+        trailIcon = R.drawable.ic_arrow_right,
+        isLeading = false,
+    ),
+)

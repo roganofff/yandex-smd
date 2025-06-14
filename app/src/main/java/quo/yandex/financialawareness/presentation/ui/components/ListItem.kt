@@ -109,7 +109,7 @@ fun ListItem(
                 contentDescription = null,
                 modifier = Modifier
                     .padding(end = 16.dp)
-                    .size(24.dp)
+//                    .size(24.dp)  only for now
             )
         }
     }
