@@ -6,11 +6,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import quo.yandex.financialawareness.R
-import quo.yandex.financialawareness.presentation.screens.AccountScreen
-import quo.yandex.financialawareness.presentation.screens.CategoriesScreen
-import quo.yandex.financialawareness.presentation.screens.ExpensesScreen
-import quo.yandex.financialawareness.presentation.screens.IncomeScreen
-import quo.yandex.financialawareness.presentation.screens.SettingsScreen
+import quo.yandex.financialawareness.presentation.screens.account.AccountScreen
+import quo.yandex.financialawareness.presentation.screens.categories.CategoriesScreen
+import quo.yandex.financialawareness.presentation.screens.expenses.ExpensesScreen
+import quo.yandex.financialawareness.presentation.screens.income.IncomeScreen
+import quo.yandex.financialawareness.presentation.screens.settings.SettingsScreen
 import quo.yandex.financialawareness.presentation.screens.SplashScreen
 
 enum class Destination(
