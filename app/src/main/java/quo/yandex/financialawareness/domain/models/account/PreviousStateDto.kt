@@ -1,6 +1,6 @@
-package quo.yandex.financialawareness.domain.models
+package quo.yandex.financialawareness.domain.models.account
 
-data class NewStateDto(
+data class PreviousStateDto(
     val id: Int, // 1
     val name: String, // Основной счет
     val balance: String, // 1000.00

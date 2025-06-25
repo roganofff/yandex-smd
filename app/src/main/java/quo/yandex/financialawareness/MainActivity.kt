@@ -26,7 +26,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import quo.yandex.financialawareness.presentation.navigation.AppNavHost
 import quo.yandex.financialawareness.presentation.navigation.Destination
