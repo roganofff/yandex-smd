@@ -17,7 +17,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -65,7 +66,7 @@ fun SearchField(
                 }
                 Spacer(modifier = Modifier.width(8.dp))
                 Icon(
-                    painter = painterResource(R.drawable.ic_search),
+                    imageVector = ImageVector.vectorResource(R.drawable.ic_search),
                     contentDescription = "Поиск",
                     tint = Color(0xFF49454F),
                     modifier = Modifier

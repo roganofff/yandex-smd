@@ -18,7 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -86,7 +87,7 @@ fun ListItem(
                     fontSize = 14.sp,
                     lineHeight = 20.sp,
                     letterSpacing = 0.25.sp,
-                    color = Color.Gray
+                    color = Color(0xFF49454F)
                 )
             }
         }
@@ -105,7 +106,7 @@ fun ListItem(
 
         trailIcon?.let {
             Image(
-                painter = painterResource(id = trailIcon),
+                imageVector = ImageVector.vectorResource(trailIcon),
                 contentDescription = null,
                 modifier = Modifier
                     .padding(end = 16.dp)
