@@ -31,7 +31,7 @@ fun SplashScreen(
     )
 
     LaunchedEffect(animationState.isAtEnd) {
-        if (animationState.isAtEnd) {
+        if (animationState.progress == 1f) {
             onSplashFinished()
         }
     }
