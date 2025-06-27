@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,7 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -60,7 +61,7 @@ fun ListItem(
                 Text(
                     text = leadIcon,
                     fontSize = if (isEmojiIcon) 16.sp else 10.sp,
-                    color = Color(0xFF1D1B20),
+                    color = colorScheme.onSurface,
                     textAlign = TextAlign.Center
                 )
             }
@@ -74,20 +75,12 @@ fun ListItem(
         ) {
             Text(
                 text = title,
-                fontWeight = FontWeight.W400,
-                fontSize = 16.sp,
-                lineHeight = 24.sp,
-                letterSpacing = 0.5.sp,
-                color = Color.Black
+                style = typography.bodyLarge
             )
             comment?.let {
                 Text(
                     text = comment,
-                    fontWeight = FontWeight.W400,
-                    fontSize = 14.sp,
-                    lineHeight = 20.sp,
-                    letterSpacing = 0.25.sp,
-                    color = Color(0xFF49454F)
+                    style = typography.bodyMedium
                 )
             }
         }
@@ -95,12 +88,8 @@ fun ListItem(
         price?.let {
             Text(
                 text = price,
-                modifier = Modifier.padding(end = 16.dp, start = 16.dp),
-                fontWeight = FontWeight.W400,
-                fontSize = 16.sp,
-                lineHeight = 24.sp,
-                letterSpacing = 0.5.sp,
-                color = Color.Black
+                style = typography.bodyLarge,
+                modifier = Modifier.padding(end = 16.dp, start = 16.dp)
             )
         }
 

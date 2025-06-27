@@ -1,6 +1,8 @@
 package quo.yandex.financialawareness.presentation.ui.components
 
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarDefaults
 import androidx.compose.material3.NavigationBarItem
@@ -11,7 +13,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.navigation.NavController
@@ -38,15 +39,19 @@ fun BottomBar(
                         contentDescription = destination.contentDescription,
                     )
                 },
-                label = { Text(destination.label) },
+                label = { Text(destination.label, style = if (selectedDestination == index) {
+                    typography.labelMedium
+                } else {
+                    typography.labelSmall
+                }) },
                 colors = NavigationBarItemColors(
-                    selectedIconColor = Color(0xFF2AE881),
-                    selectedTextColor = Color(0xFF1D1B20),
-                    selectedIndicatorColor = Color(0xFFD4FAE6),
-                    unselectedIconColor = Color(0xFF49454F),
-                    unselectedTextColor = Color(0xFF49454F),
-                    disabledIconColor = Color(0xFF49454F),
-                    disabledTextColor = Color(0xFF49454F),
+                    selectedIconColor = colorScheme.primaryContainer,
+                    selectedTextColor = colorScheme.onSurface,
+                    selectedIndicatorColor = colorScheme.secondaryContainer,
+                    unselectedIconColor = colorScheme.onSurfaceVariant,
+                    unselectedTextColor = colorScheme.onSurfaceVariant,
+                    disabledIconColor = colorScheme.onSurfaceVariant,
+                    disabledTextColor = colorScheme.onSurfaceVariant,
                 )
             )
         }

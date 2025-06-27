@@ -4,13 +4,12 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -21,17 +20,14 @@ fun TopBar(
     CenterAlignedTopAppBar(
         modifier = Modifier.fillMaxWidth(),
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color(0xFF2AE881),
-            titleContentColor = Color(0xFF1D1B20),
+            containerColor = colorScheme.primaryContainer,
+            titleContentColor = colorScheme.onSurface,
         ),
         title = {
             Text(
-                title,
-                maxLines = 1,
-                fontSize = 22.sp,
-                lineHeight = 28.sp,
-                letterSpacing = 0.sp,
-                fontWeight = FontWeight(400),
+                text = title,
+                style = typography.titleLarge,
+                maxLines = 1
             )
         },
         actions = actions,

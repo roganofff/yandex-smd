@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,7 +36,7 @@ fun FloatingButton(modifier: Modifier) {
             modifier = Modifier.size(56.dp),
             onClick = {  },
             shape = CircleShape,
-            containerColor = Color(0xFF2AE881),
+            containerColor = colorScheme.primaryContainer,
             contentColor = Color.White,
             elevation = FloatingActionButtonDefaults.elevation(
                 defaultElevation = 0.dp,
