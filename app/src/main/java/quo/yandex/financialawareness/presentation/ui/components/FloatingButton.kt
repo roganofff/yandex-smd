@@ -11,11 +11,13 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import quo.yandex.financialawareness.R
 
@@ -34,7 +36,7 @@ fun FloatingButton(modifier: Modifier) {
             modifier = Modifier.size(56.dp),
             onClick = {  },
             shape = CircleShape,
-            containerColor = Color(0xFF2AE881),
+            containerColor = colorScheme.primaryContainer,
             contentColor = Color.White,
             elevation = FloatingActionButtonDefaults.elevation(
                 defaultElevation = 0.dp,
@@ -42,7 +44,7 @@ fun FloatingButton(modifier: Modifier) {
             ),
         ) {
             Icon(
-                painter = painterResource(id = R.drawable.ic_add),
+                imageVector = ImageVector.vectorResource(R.drawable.ic_add),
                 contentDescription = null,
                 Modifier.size(16.dp)
             )

@@ -1,4 +1,4 @@
-package quo.yandex.financialawareness.domain.models
+package quo.yandex.financialawareness.domain.models.account
 
 data class HistoryDto(
     val id: Int, // 1

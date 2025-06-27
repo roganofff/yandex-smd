@@ -1,4 +1,4 @@
-package quo.yandex.financialawareness.domain.models
+package quo.yandex.financialawareness.domain.models.category
 
 data class CategoriesItemDto(
     val id: Int, // 1
