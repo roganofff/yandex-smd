@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -47,7 +48,7 @@ fun SearchField(
                 Box(modifier = Modifier.weight(1f)) {
                     if (query.isEmpty()) {
                         Text(
-                            text = "Найти статью",
+                            text = stringResource(R.string.find_category),
                             style = TextStyle(
                                 color = colorScheme.onSurfaceVariant,
                                 fontSize = 16.sp,
@@ -62,7 +63,7 @@ fun SearchField(
                 Spacer(modifier = Modifier.width(8.dp))
                 Icon(
                     imageVector = ImageVector.vectorResource(R.drawable.ic_search),
-                    contentDescription = "Поиск",
+                    contentDescription = stringResource(R.string.search),
                     tint = colorScheme.onSurfaceVariant,
                     modifier = Modifier
                         .size(24.dp)

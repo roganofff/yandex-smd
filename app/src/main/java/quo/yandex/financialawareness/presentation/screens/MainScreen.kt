@@ -18,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -48,14 +49,14 @@ fun AppScreen(modifier: Modifier = Modifier) {
                 topBar = {
                     when (currentRoute) {
                         Destination.EXPENSES.route -> TopBar(
-                            title = "Расходы сегодня",
+                            title = stringResource(R.string.expenses_today),
                             actions = {
                                 IconButton(
                                     onClick = { },
                                     content = {
                                         Image(
                                             imageVector = ImageVector.vectorResource(R.drawable.ic_history),
-                                            contentDescription = "История",
+                                            contentDescription = stringResource(R.string.history),
                                             contentScale = ContentScale.Crop,
                                             modifier = Modifier.size(24.dp)
                                         )
@@ -65,14 +66,14 @@ fun AppScreen(modifier: Modifier = Modifier) {
                         )
 
                         Destination.INCOME.route -> TopBar(
-                            title = "Доходы сегодня",
+                            title = stringResource(R.string.income_today),
                             actions = {
                                 IconButton(
                                     onClick = { },
                                     content = {
                                         Image(
                                             imageVector = ImageVector.vectorResource(R.drawable.ic_history),
-                                            contentDescription = "История",
+                                            contentDescription = stringResource(R.string.history),
                                             contentScale = ContentScale.Crop,
                                             modifier = Modifier.size(24.dp)
                                         )
@@ -82,14 +83,14 @@ fun AppScreen(modifier: Modifier = Modifier) {
                         )
 
                         Destination.ACCOUNT.route -> TopBar(
-                            title = "Мой счёт",
+                            title = stringResource(R.string.my_account),
                             actions = {
                                 IconButton(
                                     onClick = { },
                                     content = {
                                         Image(
                                             imageVector = ImageVector.vectorResource(R.drawable.ic_edit),
-                                            contentDescription = "Редактировать",
+                                            contentDescription = stringResource(R.string.edit),
                                             contentScale = ContentScale.Crop,
                                             modifier = Modifier.size(24.dp)
                                         )
@@ -98,8 +99,8 @@ fun AppScreen(modifier: Modifier = Modifier) {
                             }
                         )
 
-                        Destination.CATEGORIES.route -> TopBar(title = "Мои статьи")
-                        Destination.SETTINGS.route -> TopBar(title = "Настройки")
+                        Destination.CATEGORIES.route -> TopBar(title = stringResource(R.string.my_categories))
+                        Destination.SETTINGS.route -> TopBar(title = stringResource(R.string.settings))
                     }
                 },
                 bottomBar = {

@@ -30,6 +30,7 @@ fun CategoriesScreen(
     contentPadding: PaddingValues = PaddingValues()
 ) {
     var query by rememberSaveable { mutableStateOf("") }
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()

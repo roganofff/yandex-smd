@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">FinancialAwareness</string>
+    <string name="find_category">Найти статью</string>
+    <string name="search">Поиск</string>
+    <string name="expenses_today">Расходы сегодня</string>
+    <string name="income_today">Доходы сегодня</string>
+    <string name="my_account">Мой счёт</string>
+    <string name="my_categories">Мои статьи</string>
+    <string name="settings">Настройки</string>
+    <string name="edit">Редактировать</string>
+    <string name="history">История</string>
 </resources>
