@@ -1,4 +1,4 @@
-package quo.yandex.financialawareness.domain.models.transaction
+package quo.yandex.financialawareness.data.models.transaction
 
 data class TransactionDto(
     val id: Int, // 1

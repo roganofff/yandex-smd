@@ -1,4 +1,4 @@
-package quo.yandex.financialawareness.domain.models.category
+package quo.yandex.financialawareness.data.models.category
 
 data class CategoryStatDto(
     val categoryId: Int, // 1

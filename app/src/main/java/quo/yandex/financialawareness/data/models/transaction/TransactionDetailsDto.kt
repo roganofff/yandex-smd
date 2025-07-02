@@ -1,7 +1,7 @@
-package quo.yandex.financialawareness.domain.models.transaction
+package quo.yandex.financialawareness.data.models.transaction
 
-import quo.yandex.financialawareness.domain.models.account.AccountDto
-import quo.yandex.financialawareness.domain.models.category.CategoriesItemDto
+import quo.yandex.financialawareness.data.models.account.AccountDto
+import quo.yandex.financialawareness.data.models.category.CategoriesItemDto
 
 data class TransactionDetailsDto(
     val id: Int, // 1

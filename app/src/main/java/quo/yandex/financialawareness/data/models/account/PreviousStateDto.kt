@@ -1,4 +1,4 @@
-package quo.yandex.financialawareness.domain.models.account
+package quo.yandex.financialawareness.data.models.account
 
 data class PreviousStateDto(
     val id: Int, // 1
