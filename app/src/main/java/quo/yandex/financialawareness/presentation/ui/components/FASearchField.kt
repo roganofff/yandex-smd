@@ -28,7 +28,7 @@ import androidx.compose.ui.unit.sp
 import quo.yandex.financialawareness.R
 
 @Composable
-fun SearchField(
+fun FASearchField(
     query: String,
 ) {
     BasicTextField(

@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBar(
+fun FATopBar(
     title: String,
     actions: @Composable (RowScope.() -> Unit) = {}
 ) {

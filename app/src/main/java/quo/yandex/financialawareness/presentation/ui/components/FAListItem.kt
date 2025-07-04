@@ -27,11 +27,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ListItem(
+fun FAListItem(
     modifier: Modifier = Modifier,
     title: String,
     comment: String? = null,
-    price: String? = null,
+    trailTitle: String? = null,
     leadIcon: String? = null,
     trailIcon: Int? = null,
     isLeading: Boolean = false,
@@ -85,9 +85,9 @@ fun ListItem(
             }
         }
 
-        price?.let {
+        trailTitle?.let {
             Text(
-                text = price,
+                text = trailTitle,
                 style = typography.bodyLarge,
                 modifier = Modifier.padding(end = 16.dp, start = 16.dp)
             )

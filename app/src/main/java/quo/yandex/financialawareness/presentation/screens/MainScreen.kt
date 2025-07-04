@@ -27,8 +27,14 @@ import androidx.navigation.compose.rememberNavController
 import quo.yandex.financialawareness.R
 import quo.yandex.financialawareness.presentation.navigation.AppNavHost
 import quo.yandex.financialawareness.presentation.navigation.Destination
-import quo.yandex.financialawareness.presentation.ui.components.BottomBar
-import quo.yandex.financialawareness.presentation.ui.components.TopBar
+import quo.yandex.financialawareness.presentation.screens.account.AccountScreen
+import quo.yandex.financialawareness.presentation.screens.account.AccountTopBar
+import quo.yandex.financialawareness.presentation.screens.categories.CategoriesTopBar
+import quo.yandex.financialawareness.presentation.screens.expenses.ExpensesTopBar
+import quo.yandex.financialawareness.presentation.screens.income.IncomeTopBar
+import quo.yandex.financialawareness.presentation.screens.settings.SettingsTopBar
+import quo.yandex.financialawareness.presentation.ui.components.FABottomBar
+import quo.yandex.financialawareness.presentation.ui.components.FATopBar
 import quo.yandex.financialawareness.presentation.ui.theme.FinancialAwarenessTheme
 
 @Preview
@@ -48,63 +54,15 @@ fun AppScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.fillMaxSize(),
                 topBar = {
                     when (currentRoute) {
-                        Destination.EXPENSES.route -> TopBar(
-                            title = stringResource(R.string.expenses_today),
-                            actions = {
-                                IconButton(
-                                    onClick = { },
-                                    content = {
-                                        Image(
-                                            imageVector = ImageVector.vectorResource(R.drawable.ic_history),
-                                            contentDescription = stringResource(R.string.history),
-                                            contentScale = ContentScale.Crop,
-                                            modifier = Modifier.size(24.dp)
-                                        )
-                                    }
-                                )
-                            }
-                        )
-
-                        Destination.INCOME.route -> TopBar(
-                            title = stringResource(R.string.income_today),
-                            actions = {
-                                IconButton(
-                                    onClick = { },
-                                    content = {
-                                        Image(
-                                            imageVector = ImageVector.vectorResource(R.drawable.ic_history),
-                                            contentDescription = stringResource(R.string.history),
-                                            contentScale = ContentScale.Crop,
-                                            modifier = Modifier.size(24.dp)
-                                        )
-                                    }
-                                )
-                            }
-                        )
-
-                        Destination.ACCOUNT.route -> TopBar(
-                            title = stringResource(R.string.my_account),
-                            actions = {
-                                IconButton(
-                                    onClick = { },
-                                    content = {
-                                        Image(
-                                            imageVector = ImageVector.vectorResource(R.drawable.ic_edit),
-                                            contentDescription = stringResource(R.string.edit),
-                                            contentScale = ContentScale.Crop,
-                                            modifier = Modifier.size(24.dp)
-                                        )
-                                    }
-                                )
-                            }
-                        )
-
-                        Destination.CATEGORIES.route -> TopBar(title = stringResource(R.string.my_categories))
-                        Destination.SETTINGS.route -> TopBar(title = stringResource(R.string.settings))
+                        Destination.EXPENSES.route -> ExpensesTopBar()
+                        Destination.INCOME.route -> IncomeTopBar()
+                        Destination.ACCOUNT.route -> AccountTopBar()
+                        Destination.CATEGORIES.route -> CategoriesTopBar()
+                        Destination.SETTINGS.route -> SettingsTopBar()
                     }
                 },
                 bottomBar = {
-                    BottomBar(
+                    FABottomBar(
                         navController = navController,
                         startDestination = startDestination
                     )

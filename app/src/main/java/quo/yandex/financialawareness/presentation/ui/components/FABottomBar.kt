@@ -19,7 +19,7 @@ import androidx.navigation.NavController
 import quo.yandex.financialawareness.presentation.navigation.Destination
 
 @Composable
-fun BottomBar(
+fun FABottomBar(
     navController: NavController,
     startDestination: Destination,
 ) {
