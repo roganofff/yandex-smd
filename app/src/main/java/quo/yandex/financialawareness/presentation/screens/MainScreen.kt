@@ -1,14 +1,11 @@
 package quo.yandex.financialawareness.presentation.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -16,25 +13,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import quo.yandex.financialawareness.R
 import quo.yandex.financialawareness.presentation.navigation.AppNavHost
 import quo.yandex.financialawareness.presentation.navigation.Destination
-import quo.yandex.financialawareness.presentation.screens.account.AccountScreen
 import quo.yandex.financialawareness.presentation.screens.account.AccountTopBar
 import quo.yandex.financialawareness.presentation.screens.categories.CategoriesTopBar
 import quo.yandex.financialawareness.presentation.screens.expenses.ExpensesTopBar
 import quo.yandex.financialawareness.presentation.screens.income.IncomeTopBar
 import quo.yandex.financialawareness.presentation.screens.settings.SettingsTopBar
 import quo.yandex.financialawareness.presentation.ui.components.FABottomBar
-import quo.yandex.financialawareness.presentation.ui.components.FATopBar
 import quo.yandex.financialawareness.presentation.ui.theme.FinancialAwarenessTheme
 
 @Preview

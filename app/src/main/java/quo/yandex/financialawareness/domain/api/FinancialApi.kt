@@ -1,5 +1,6 @@
 package quo.yandex.financialawareness.domain.api
 
+import quo.yandex.financialawareness.data.models.account.AccountDetailsDto
 import quo.yandex.financialawareness.data.models.account.AccountDto
 import quo.yandex.financialawareness.data.models.category.CategoriesItemDto
 import quo.yandex.financialawareness.data.models.transaction.TransactionDetailsDto
@@ -9,11 +10,7 @@ import retrofit2.http.Query
 
 
 interface FinancialApi {
-    @GET("accounts/{id}")
-    suspend fun getAccountById(@Path("id") id: Int): AccountDto
 
-    @GET("accounts")
-    suspend fun getAccounts(): List<AccountDto>
 
     @GET("transactions/account/{accountId}/period")
     suspend fun getTransactionsForPeriod(

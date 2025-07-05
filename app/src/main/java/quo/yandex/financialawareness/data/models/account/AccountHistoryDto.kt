@@ -4,6 +4,6 @@ data class AccountHistoryDto(
     val accountId: Int, // 1
     val accountName: String, // Основной счет
     val currency: String, // USD
-    val currentBalance: String, // 2000.00
+    val currentBalance: Double, // 2000.00
     val history: List<HistoryDto>
 )
