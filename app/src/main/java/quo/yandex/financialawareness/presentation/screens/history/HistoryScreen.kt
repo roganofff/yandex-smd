@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import quo.yandex.financialawareness.presentation.ui.components.FADivider
 import quo.yandex.financialawareness.presentation.ui.components.FAListItem
-import quo.yandex.financialawareness.util.getCurrentMonth
 
 @Preview
 @Composable
@@ -32,7 +31,7 @@ fun HistoryScreen(
         item {
             FAListItem(
                 title = "Начало",
-                trailTitle = getCurrentMonth(),
+                trailTitle = "Июль 2025",
                 isLeading = true,
                 isEmojiIcon = false,
             )

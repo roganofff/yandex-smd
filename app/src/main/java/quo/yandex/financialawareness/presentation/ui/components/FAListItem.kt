@@ -2,6 +2,8 @@ package quo.yandex.financialawareness.presentation.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,6 +19,7 @@ import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -36,18 +39,30 @@ fun FAListItem(
     trailIcon: Int? = null,
     isLeading: Boolean = false,
     isEmojiIcon: Boolean = true,
+    onClick: (() -> Unit)? = null,
 ) {
     val greenBackground = Color(0xFFD4FAE5)
     val whiteBackground = Color(0xFFFEF7FF)
 
     val rowBackground = if (isLeading) greenBackground else Color.Transparent
     val circleBackground = if (isLeading) whiteBackground else greenBackground
+    val interactionSource = remember { MutableInteractionSource() }
+    val clickableModifier = if (onClick != null) {
+        Modifier.clickable(
+            interactionSource = interactionSource,
+            indication = null,
+            onClick = onClick
+        )
+    } else {
+        Modifier
+    }
 
     Row(
         modifier = modifier
             .fillMaxWidth()
             .background(rowBackground)
-            .height(if (isLeading) 56.dp else 68.dp),
+            .height(if (isLeading) 56.dp else 68.dp)
+            .then(clickableModifier),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         leadIcon?.let {

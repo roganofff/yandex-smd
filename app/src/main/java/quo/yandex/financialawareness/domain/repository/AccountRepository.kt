@@ -5,6 +5,13 @@ import quo.yandex.financialawareness.data.models.account.AccountDto
 import quo.yandex.financialawareness.util.result.ResultState
 
 interface AccountRepository {
-    suspend fun getAccountDetails(id: Int) : ResultState<AccountDetailsDto>
     suspend fun getAllAccounts() : ResultState<List<AccountDto>>
+    suspend fun getAccountDetails(id: Int) : ResultState<AccountDetailsDto>
+    suspend fun updateAccount(
+        id: Int,
+        name: String,
+        balance: String,
+        currency: String,
+    ) : ResultState<AccountDto>
+    suspend fun getAllCurrencies() : ResultState<List<String>>
 }

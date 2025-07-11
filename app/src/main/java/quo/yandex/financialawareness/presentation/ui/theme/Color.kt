@@ -15,6 +15,12 @@ val Surface = Color(0xFFFEF7FF)
 val SurfaceContainer = Color(0xFFF3EDF7)
 val SurfaceContainerHigh = Color(0xFFECE6F0)
 
+val InverseSurface = Color(0xFF8C8C8C)
+val InverseOnSurface = Color(0xFFFFFFEF)
+
 val OnSurface = Color(0xFF1D1B20)
 val OnSurfaceVariant = Color(0xFF49454F)
 val OutlineVariant = Color(0xFFCAC4D0)
+
+val Error = Color(0xFFE46962)
+val OnError = Color(0xFFFFFFEF)
