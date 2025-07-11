@@ -1,12 +1,28 @@
 package quo.yandex.financialawareness.presentation.ui.components
 
-import android.graphics.Color
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun FAShimmerListItem(
@@ -20,11 +36,11 @@ fun FAShimmerListItem(
     showTrailingTitle: Boolean = false,
     showTrailingSubtitle: Boolean = false,
     showTrailingIcon: Boolean = false,
-    titleHeight: Dp = Providers.spacing.l,
-    subtitleHeight: Dp = Providers.spacing.m,
-    backgroundColor: Color = Providers.color.surface,
-    contentPadding: PaddingValues = PaddingValues(horizontal = Providers.spacing.m),
-    height: Dp = Providers.spacing.xxxl
+    titleHeight: Dp = 20.dp,
+    subtitleHeight: Dp = 16.dp,
+    backgroundColor: Color = colorScheme.surface,
+    contentPadding: PaddingValues = PaddingValues(horizontal = 16.dp),
+    height: Dp = 72.dp
 ) {
     val shimmerBrush = rememberShimmerBrush()
 
@@ -40,10 +56,10 @@ fun FAShimmerListItem(
             verticalAlignment = Alignment.CenterVertically
         ) {
             if (showLeadingIcon) {
-                Box(modifier = Modifier.padding(end = Providers.spacing.m)) {
+                Box(modifier = Modifier.padding(end = 16.dp)) {
                     Box(
                         modifier = Modifier
-                            .size(Providers.componentSize.iconMedium)
+                            .size(24.dp)
                             .clip(CircleShape)
                             .background(shimmerBrush)
                     )
@@ -55,7 +71,7 @@ fun FAShimmerListItem(
             ) {
                 if (!showSubtitle) {
                     if (title != null) {
-                        MTText(
+                        Text(
                             text = title,
                             maxLines = 1
                         )
@@ -64,16 +80,18 @@ fun FAShimmerListItem(
                             modifier = Modifier
                                 .height(titleHeight)
                                 .fillMaxWidth(0.7f)
-                                .clip(Providers.shape.xs)
+                                .clip(RoundedCornerShape(4.dp))
                                 .background(shimmerBrush)
                         )
                     }
                 } else {
                     if (title != null) {
-                        MTText(
+                        Text(
                             text = title,
-                            contentPadding = PaddingValues(
-                                bottom = Providers.spacing.xxs,
+                            modifier = Modifier.padding(
+                                PaddingValues(
+                                    bottom = 2.dp,
+                                )
                             ),
                             maxLines = 1
                         )
@@ -82,23 +100,25 @@ fun FAShimmerListItem(
                             modifier = Modifier
                                 .padding(
                                     PaddingValues(
-                                        bottom = Providers.spacing.xxs,
+                                        bottom = 2.dp,
                                     )
                                 )
                                 .height(titleHeight)
                                 .fillMaxWidth(0.7f)
-                                .clip(Providers.shape.xs)
+                                .clip(RoundedCornerShape(4.dp))
                                 .background(shimmerBrush)
                         )
                     }
 
                     if (subtitle != null) {
-                        MTText(
+                        Text(
                             text = subtitle,
-                            style = Providers.typography.bodyM,
-                            color = Providers.color.onSurfaceVariant,
-                            contentPadding = PaddingValues(
-                                top = Providers.spacing.xxs,
+                            style = typography.bodyMedium,
+                            color = colorScheme.onSurfaceVariant,
+                            modifier = Modifier.padding(
+                                PaddingValues(
+                                    top = 2.dp,
+                                )
                             ),
                             maxLines = 1
                         )
@@ -107,12 +127,12 @@ fun FAShimmerListItem(
                             modifier = Modifier
                                 .padding(
                                     PaddingValues(
-                                        top = Providers.spacing.xxs,
+                                        top = 2.dp,
                                     )
                                 )
                                 .height(subtitleHeight)
                                 .fillMaxWidth(0.4f)
-                                .clip(Providers.shape.xs)
+                                .clip(RoundedCornerShape(4.dp))
                                 .background(shimmerBrush)
                         )
                     }
@@ -125,7 +145,7 @@ fun FAShimmerListItem(
                 ) {
                     if (!showTrailingSubtitle) {
                         if (trailingTitle != null) {
-                            MTText(
+                            Text(
                                 text = trailingTitle,
                                 maxLines = 1
                             )
@@ -134,16 +154,18 @@ fun FAShimmerListItem(
                                 modifier = Modifier
                                     .height(titleHeight)
                                     .width(60.dp)
-                                    .clip(Providers.shape.xs)
+                                    .clip(RoundedCornerShape(4.dp))
                                     .background(shimmerBrush)
                             )
                         }
                     } else {
                         if (trailingTitle != null) {
-                            MTText(
+                            Text(
                                 text = trailingTitle,
-                                contentPadding = PaddingValues(
-                                    bottom = Providers.spacing.xs,
+                                modifier = Modifier.padding(
+                                    PaddingValues(
+                                        bottom = 4.dp,
+                                    )
                                 ),
                                 maxLines = 1
                             )
@@ -152,12 +174,12 @@ fun FAShimmerListItem(
                                 modifier = Modifier
                                     .padding(
                                         PaddingValues(
-                                            bottom = Providers.spacing.xs,
+                                            bottom = 4.dp,
                                         )
                                     )
                                     .height(titleHeight)
                                     .width(60.dp)
-                                    .clip(Providers.shape.xs)
+                                    .clip(RoundedCornerShape())
                                     .background(shimmerBrush)
                             )
                         }

@@ -29,7 +29,7 @@ import androidx.compose.ui.window.Dialog
 import quo.yandex.financialawareness.R
 
 @Composable
-fun FEErrorDialog(
+fun FAErrorDialog(
     modifier: Modifier = Modifier,
     title: String = stringResource(R.string.error),
     message: String,

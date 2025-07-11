@@ -2,9 +2,11 @@ package quo.yandex.financialawareness.presentation.screens.account
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import quo.yandex.financialawareness.R
 import quo.yandex.financialawareness.presentation.screens.account.model.AccountUIModel
 import quo.yandex.financialawareness.presentation.ui.components.FADivider
@@ -40,17 +42,17 @@ fun AccountShimmerItem() {
             showLeadingIcon = true,
             showTrailingTitle = true,
             showTrailingIcon = true,
-            height = Providers.spacing.xxl,
-            backgroundColor = Providers.color.secondaryContainer
+            height = 60.dp,
+            backgroundColor = colorScheme.secondaryContainer
         )
 
-        HorizontalDivider()
+        FADivider()
 
         FAShimmerListItem(
             showTrailingTitle = true,
             showTrailingIcon = true,
-            height = Providers.spacing.xxl,
-            backgroundColor = Providers.color.secondaryContainer
+            height = 60.dp,
+            backgroundColor = colorScheme.secondaryContainer
         )
     }
 }

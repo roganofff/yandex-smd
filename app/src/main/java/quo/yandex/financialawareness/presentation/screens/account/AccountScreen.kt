@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -20,13 +18,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.hilt.navigation.compose.hiltViewModel
 import quo.yandex.financialawareness.R
-import quo.yandex.financialawareness.data.mock.provideAccountMockData
 import quo.yandex.financialawareness.presentation.screens.account.state.AccountEvent
 import quo.yandex.financialawareness.presentation.screens.account.viewmodel.AccountViewModel
-import quo.yandex.financialawareness.presentation.ui.components.FADivider
 import quo.yandex.financialawareness.presentation.ui.components.FAFloatingButton
-import quo.yandex.financialawareness.presentation.ui.components.FAListItem
-import quo.yandex.financialawareness.presentation.ui.components.FEErrorDialog
+import quo.yandex.financialawareness.presentation.ui.components.FAErrorDialog
 
 
 @Preview
@@ -84,7 +79,7 @@ fun AccountScreen(
 
     FAFloatingButton(modifier)
     state.showErrorDialog?.let { message ->
-        FEErrorDialog(
+        FAErrorDialog(
             message = message,
             confirmButtonText = stringResource(R.string.repeat),
             dismissButtonText = stringResource(R.string.exit),
