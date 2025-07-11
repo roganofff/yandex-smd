@@ -1,5 +1,9 @@
 package quo.yandex.financialawareness.presentation.ui.components
 
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,6 +25,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -179,18 +185,20 @@ fun FAShimmerListItem(
                                     )
                                     .height(titleHeight)
                                     .width(60.dp)
-                                    .clip(RoundedCornerShape())
+                                    .clip(RoundedCornerShape(4.dp))
                                     .background(shimmerBrush)
                             )
                         }
 
                         if (trailingSubtitle != null) {
-                            MTText(
-                                text = trailingSubtitle,
-                                color = Providers.color.onSurfaceVariant,
-                                contentPadding = PaddingValues(
-                                    top = Providers.spacing.xs,
+                            Text(
+                                modifier = Modifier.padding(
+                                    PaddingValues(
+                                        top = 4.dp,
+                                    )
                                 ),
+                                text = trailingSubtitle,
+                                color = colorScheme.onSurfaceVariant,
                                 maxLines = 1
                             )
                         } else {
@@ -198,12 +206,12 @@ fun FAShimmerListItem(
                                 modifier = Modifier
                                     .padding(
                                         PaddingValues(
-                                            top = Providers.spacing.xs,
+                                            top = 4.dp,
                                         )
                                     )
                                     .height(titleHeight)
                                     .width(40.dp)
-                                    .clip(Providers.shape.xs)
+                                    .clip(RoundedCornerShape(4.dp))
                                     .background(shimmerBrush)
                             )
                         }
@@ -212,10 +220,10 @@ fun FAShimmerListItem(
             }
 
             if (showTrailingIcon) {
-                Box(modifier = Modifier.padding(start = Providers.spacing.s)) {
+                Box(modifier = Modifier.padding(start = 8.dp)) {
                     Box(
                         modifier = Modifier
-                            .size(Providers.componentSize.iconMedium)
+                            .size(24.dp)
                             .clip(CircleShape)
                             .background(shimmerBrush)
                     )
@@ -234,7 +242,7 @@ fun FAShimmerListItem(
 
 @Composable
 fun rememberShimmerBrush(
-    shimmerColor: Color = Providers.color.inverseSurface.copy(alpha = 0.1f)
+    shimmerColor: Color = colorScheme.inverseSurface.copy(alpha = 0.1f)
 ): Brush {
     val transition = rememberInfiniteTransition(label = "ShimmerTransition")
     val translateAnimation = transition.animateFloat(

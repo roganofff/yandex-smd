@@ -1,5 +1,6 @@
 package quo.yandex.financialawareness.util.extension
 
+import quo.yandex.financialawareness.R
 import java.util.Locale
 
 fun String.toCurrencySymbol(): String {
@@ -10,6 +11,28 @@ fun String.toCurrencySymbol(): String {
         "GBP" -> "£"
         "JPY" -> "¥"
         else -> this
+    }
+}
+
+fun String.toCurrencyNameResId(): Int {
+    return when (this) {
+        "RUB" -> R.string.currency_rub
+        "USD" -> R.string.currency_usd
+        "EUR" -> R.string.currency_eur
+        "GBP" -> R.string.currency_gbp
+        "JPY" -> R.string.currency_jpy
+        else -> R.string.currency_unknown
+    }
+}
+
+fun String.toCurrencyIconResId(): Int {
+    return when (this) {
+        "RUB" -> R.drawable.ic_ruble
+        "USD" -> R.drawable.ic_dollar
+        "EUR" -> R.drawable.ic_euro
+        "GBP" -> R.drawable.ic_pound
+        "JPY" -> R.drawable.ic_yen
+        else -> R.string.currency_unknown
     }
 }
 

@@ -15,7 +15,8 @@ import androidx.compose.ui.Modifier
 @Composable
 fun FATopBar(
     title: String,
-    actions: @Composable (RowScope.() -> Unit) = {}
+    navigationIcon: @Composable (() -> Unit)? = null,
+    actions: @Composable RowScope.() -> Unit = {}
 ) {
     CenterAlignedTopAppBar(
         modifier = Modifier.fillMaxWidth(),
@@ -30,6 +31,7 @@ fun FATopBar(
                 maxLines = 1
             )
         },
+        navigationIcon = { navigationIcon?.invoke() },
         actions = actions,
     )
 }

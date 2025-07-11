@@ -18,6 +18,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.hilt.navigation.compose.hiltViewModel
 import quo.yandex.financialawareness.R
+import quo.yandex.financialawareness.presentation.screens.account.component.AccountItem
+import quo.yandex.financialawareness.presentation.screens.account.component.AccountShimmerItem
 import quo.yandex.financialawareness.presentation.screens.account.state.AccountEvent
 import quo.yandex.financialawareness.presentation.screens.account.viewmodel.AccountViewModel
 import quo.yandex.financialawareness.presentation.ui.components.FAFloatingButton
@@ -29,7 +31,6 @@ import quo.yandex.financialawareness.presentation.ui.components.FAErrorDialog
 fun AccountScreen(
     modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(),
-    onUpdateClick: () -> Unit = {},
     viewModel: AccountViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()

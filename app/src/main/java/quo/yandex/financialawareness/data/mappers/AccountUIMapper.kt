@@ -6,13 +6,15 @@ import quo.yandex.financialawareness.util.extension.formatAmount
 import quo.yandex.financialawareness.util.extension.toCurrencySymbol
 import javax.inject.Inject
 
-class AccountUIMapper @Inject constructor() {
+class AccountUIMapper @Inject constructor(
+    private val currencyUIMapper: CurrencyUIMapper
+) {
     fun map(account: AccountDto): AccountUIModel {
         return AccountUIModel(
             id = account.id,
             name = account.name,
-            balance = "${account.balance.formatAmount()} ${account.currency.toCurrencySymbol()}",
-            currency = account.currency.toCurrencySymbol()
+            balance = account.balance.formatAmount(),
+            currency = currencyUIMapper.map(account.currency)
         )
     }
 }

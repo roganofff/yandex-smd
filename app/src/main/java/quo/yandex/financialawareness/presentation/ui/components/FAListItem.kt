@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Text
@@ -23,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
@@ -35,17 +37,17 @@ fun FAListItem(
     title: String,
     comment: String? = null,
     trailTitle: String? = null,
-    leadIcon: String? = null,
+    leadIcon: Any? = null,
     trailIcon: Int? = null,
+    height: Dp = 72.dp,
+    mainColor: Color = Color(0xFFD4FAE5),
+    backgroundColor: Color = Color(0xFFFEF7FF),
     isLeading: Boolean = false,
     isEmojiIcon: Boolean = true,
     onClick: (() -> Unit)? = null,
 ) {
-    val greenBackground = Color(0xFFD4FAE5)
-    val whiteBackground = Color(0xFFFEF7FF)
-
-    val rowBackground = if (isLeading) greenBackground else Color.Transparent
-    val circleBackground = if (isLeading) whiteBackground else greenBackground
+    val rowBackground = if (isLeading) mainColor else Color.Transparent
+    val circleBackground = if (isLeading) backgroundColor else mainColor
     val interactionSource = remember { MutableInteractionSource() }
     val clickableModifier = if (onClick != null) {
         Modifier.clickable(
@@ -61,7 +63,8 @@ fun FAListItem(
         modifier = modifier
             .fillMaxWidth()
             .background(rowBackground)
-            .height(if (isLeading) 56.dp else 68.dp)
+            .height(height)
+//            .height(if (isLeading) 56.dp else 68.dp)
             .then(clickableModifier),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -73,12 +76,23 @@ fun FAListItem(
                     .background(color = circleBackground, shape = CircleShape),
                 contentAlignment = Alignment.Center
             ) {
-                Text(
-                    text = leadIcon,
-                    fontSize = if (isEmojiIcon) 16.sp else 10.sp,
-                    color = colorScheme.onSurface,
-                    textAlign = TextAlign.Center
-                )
+                when (leadIcon) {
+                    is String -> {
+                        Text(
+                            text = leadIcon,
+                            fontSize = if (isEmojiIcon) 16.sp else 10.sp,
+                            color = colorScheme.onSurface,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                    is Int -> {
+                        Icon(
+                            imageVector = ImageVector.vectorResource(leadIcon),
+                            tint = colorScheme.onError,
+                            contentDescription = null,
+                        )
+                    }
+                }
             }
         }
 

@@ -14,11 +14,15 @@ import quo.yandex.financialawareness.R
 import quo.yandex.financialawareness.presentation.ui.components.FATopBar
 
 @Composable
-fun AccountTopBar() = FATopBar(
+fun AccountTopBar(
+    onUpdateClick: () -> Unit,
+) = FATopBar(
     title = stringResource(R.string.my_account),
 ) {
     IconButton(
-        onClick = { },
+        onClick = {
+            onUpdateClick()
+        },
     ) {
         Image(
             imageVector = ImageVector.vectorResource(R.drawable.ic_edit),

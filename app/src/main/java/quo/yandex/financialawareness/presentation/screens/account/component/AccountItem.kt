@@ -1,4 +1,4 @@
-package quo.yandex.financialawareness.presentation.screens.account
+package quo.yandex.financialawareness.presentation.screens.account.component
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,11 +17,12 @@ import quo.yandex.financialawareness.presentation.ui.components.FAShimmerListIte
 fun AccountItem(account: AccountUIModel) {
     Column(modifier = Modifier.fillMaxWidth()) {
         FAListItem(
-            title = account.name.ifEmpty { stringResource(R.string.account) },
+            title = if (account.name.isEmpty()) stringResource(R.string.account) else account.name,
             trailIcon = R.drawable.ic_more_vert,
             leadIcon = "\uD83D\uDCB0",
             trailTitle = "${account.balance} ${account.currency.symbol}",
-            onClick = { },
+            height = 60.dp,
+            isLeading = true,
         )
 
         FADivider()
@@ -30,7 +31,8 @@ fun AccountItem(account: AccountUIModel) {
             title = stringResource(R.string.valute),
             trailIcon = R.drawable.ic_more_vert,
             trailTitle = account.currency.symbol,
-            onClick = { },
+            height = 60.dp,
+            isLeading = true,
         )
     }
 }

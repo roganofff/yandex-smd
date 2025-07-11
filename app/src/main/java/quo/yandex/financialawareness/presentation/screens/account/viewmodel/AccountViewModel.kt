@@ -2,6 +2,7 @@ package quo.yandex.financialawareness.presentation.screens.account.viewmodel
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -9,6 +10,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import quo.yandex.financialawareness.R
 import quo.yandex.financialawareness.data.mappers.AccountUIMapper
@@ -33,8 +35,8 @@ class AccountViewModel @Inject constructor(
     override val _state = MutableStateFlow(AccountState())
     override val state: StateFlow<AccountState> = _state.asStateFlow()
 
-    override val _effect = MutableSharedFlow<AccountEffect>()
-    override val effect: SharedFlow<AccountEffect> = _effect.asSharedFlow()
+    override val _effect = Channel<AccountEffect>()
+    override val effect = _effect.receiveAsFlow()
 
     private var loadAccountJob: Job? = null
 
