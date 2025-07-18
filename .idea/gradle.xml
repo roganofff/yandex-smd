@@ -11,9 +11,31 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/common/data" />
+            <option value="$PROJECT_DIR$/common/domain" />
+            <option value="$PROJECT_DIR$/common/navigation" />
+            <option value="$PROJECT_DIR$/common/network" />
+            <option value="$PROJECT_DIR$/common/ui" />
+            <option value="$PROJECT_DIR$/common/util" />
+            <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/account" />
+            <option value="$PROJECT_DIR$/feature/account/api" />
+            <option value="$PROJECT_DIR$/feature/account/impl" />
+            <option value="$PROJECT_DIR$/feature/categories" />
+            <option value="$PROJECT_DIR$/feature/categories/api" />
+            <option value="$PROJECT_DIR$/feature/categories/impl" />
+            <option value="$PROJECT_DIR$/feature/expenses" />
+            <option value="$PROJECT_DIR$/feature/expenses/impl" />
+            <option value="$PROJECT_DIR$/feature/income" />
+            <option value="$PROJECT_DIR$/feature/income/impl" />
+            <option value="$PROJECT_DIR$/feature/settings" />
+            <option value="$PROJECT_DIR$/feature/settings/impl" />
+            <option value="$PROJECT_DIR$/feature/transactions" />
+            <option value="$PROJECT_DIR$/feature/transactions/api" />
+            <option value="$PROJECT_DIR$/feature/transactions/impl" />
           </set>
         </option>
-        <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

@@ -1,56 +1,37 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import java.util.Properties
 
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.kotlin.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.safe.args)
+    alias(libs.plugins.gradle.secrets)
 }
 
 kotlin {
     compilerOptions {
-        jvmTarget = JvmTarget.fromTarget("17")
-        freeCompilerArgs.addAll(listOf("-XXLanguage:+PropertyParamAnnotationDefaultTargetMode"))
+        jvmTarget.set(JvmTarget.fromTarget(libs.versions.java.get()))
+        freeCompilerArgs.add("-XXLanguage:+PropertyParamAnnotationDefaultTargetMode")
     }
 }
 
 android {
     namespace = "quo.yandex.financialawareness"
-    compileSdk = 35
-
-    val localProps = Properties().apply {
-        rootProject.file("local.properties")
-            .takeIf { it.exists() }
-            ?.inputStream()
-            ?.use { load(it) }
-    }
-
-    val apiTokenFromLocal: String? = localProps.getProperty("TOKEN")
+    compileSdk = libs.versions.sdk.compile.get().toInt()
 
     defaultConfig {
         applicationId = "quo.yandex.financialawareness"
-        minSdk = 26
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = libs.versions.sdk.min.get().toInt()
+        targetSdk = libs.versions.sdk.target.get().toInt()
+        versionCode = rootProject.extra.get("versionCode") as Int
+        versionName = rootProject.extra.get("versionName") as String
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField(
-            "String",
-            "MONEYTRACE_BASE_URL",
-            "\"https://shmr-finance.ru/api/v1/\""
-        )
-
-        buildConfigField(
-            "String",
-            "TOKEN",
-            "\"$apiTokenFromLocal\""
-        )
     }
-
 
     buildTypes {
         release {
@@ -59,18 +40,18 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField(
-                "String",
-                "MONEYTRACE_BASE_URL",
-                "\"https://shmr-finance.ru/api/v1/\""
-            )
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.valueOf(
+            libs.versions.compatibility.source
+                .get(),
+        )
+        targetCompatibility = JavaVersion.valueOf(
+            libs.versions.compatibility.target
+                .get(),
+        )
     }
-
     buildFeatures {
         compose = true
         buildConfig = true
@@ -78,29 +59,43 @@ android {
 }
 
 dependencies {
+    implementation(project(path = ":common:domain"))
+    implementation(project(path = ":common:data"))
+    implementation(project(path = ":common:ui"))
+    implementation(project(path = ":common:navigation"))
+    implementation(project(path = ":common:util"))
+    implementation(project(path = ":common:network"))
 
-implementation(libs.androidx.core.ktx)
-implementation(libs.androidx.lifecycle.runtime.ktx)
-implementation(libs.androidx.activity.compose)
-implementation(platform(libs.androidx.compose.bom))
-implementation(libs.androidx.ui)
-implementation(libs.androidx.ui.graphics)
-implementation(libs.androidx.ui.tooling.preview)
-implementation(libs.androidx.material3)
-implementation(libs.androidx.navigation.compose.android)
-implementation(libs.hilt.android)
-implementation(libs.androidx.hilt.navigation.compose)
-implementation(libs.okhttp)
-implementation(libs.logging.interceptor)
-implementation(libs.retrofit)
-implementation(libs.converter.gson)
-kapt(libs.hilt.android.compiler)
-implementation(libs.lottie.compose)
-testImplementation(libs.junit)
-androidTestImplementation(libs.androidx.junit)
-androidTestImplementation(libs.androidx.espresso.core)
-androidTestImplementation(platform(libs.androidx.compose.bom))
-androidTestImplementation(libs.androidx.ui.test.junit4)
-debugImplementation(libs.androidx.ui.tooling)
-debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(project(path = ":feature:transactions:api"))
+    implementation(project(path = ":feature:transactions:impl"))
+    implementation(project(path = ":feature:account:api"))
+    implementation(project(path = ":feature:account:impl"))
+    implementation(project(path = ":feature:settings:impl"))
+    implementation(project(path = ":feature:income:impl"))
+    implementation(project(path = ":feature:categories:api"))
+    implementation(project(path = ":feature:categories:impl"))
+    implementation(project(path = ":feature:expenses:impl"))
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.splash)
+    implementation(libs.lotti)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.hilt)
+    implementation(libs.hilt.compose)
+    ksp(libs.hilt.compiler)
 }
