@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_account">Мой счет</string>
+    <string name="valute">Валюта</string>
+    <string name="account_name">Название счета</string>
+    <string name="balance">Баланс</string>
+    <string name="account_updated_successfully">Счет успешно обновлен</string>
+    <string name="account_not_updated">Ошибка при обновлении счета</string>
+
+    <string name="failure_network">Проблемы с сетью. Проверьте ваше подключение</string>
+    <string name="failure_bad_request">Неверный запрос</string>
+    <string name="failure_unauthorized">Необходима авторизация</string>
+    <string name="failure_forbidden">Доступ запрещен</string>
+    <string name="failure_not_found">Данные не найдены</string>
+    <string name="failure_server">Ошибка сервера. Попробуйте позже</string>
+    <string name="failure_unknown">Произошла неизвестная ошибка</string>
+    <string name="select_time">Выберите время</string>
+
+    <string name="account">Счет</string>
+    <string name="income">Доходы</string>
+    <string name="stats">Статьи</string>
+    <string name="settings">Настройки</string>
+    <string name="expenses">Расходы</string>
+    <string name="edit">Редактировать</string>
+    <string name="history">История</string>
+    <string name="details">Детали</string>
+    <string name="more">Больше</string>
+    <string name="total">Всего</string>
+    <string name="sum">Сумма</string>
+    <string name="add">Добавить</string>
+    <string name="repeat">Повторить</string>
+    <string name="error">Произошла ошибка</string>
+    <string name="search">Поиск</string>
+    <string name="start">Начало</string>
+    <string name="end">Конец</string>
+    <string name="back">Назад</string>
+    <string name="analysis">Анализ</string>
+    <string name="my_history">Моя история</string>
+    <string name="exit">Закрыть</string>
+    <string name="ok">OK</string>
+    <string name="done">Сохранить</string>
+    <string name="close">Отмена</string>
+
+    <string name="income_today">Доходы сегодня</string>
+</resources>

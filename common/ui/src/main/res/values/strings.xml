@@ -1,0 +1,58 @@
+<resources>
+    <string name="account">Счет</string>
+    <string name="income">Доходы</string>
+    <string name="stats">Статьи</string>
+    <string name="settings">Настройки</string>
+    <string name="expenses">Расходы</string>
+    <string name="edit">Редактировать</string>
+    <string name="history">История</string>
+    <string name="details">Детали</string>
+    <string name="more">Больше</string>
+    <string name="total">Всего</string>
+    <string name="sum">Сумма</string>
+    <string name="add">Добавить</string>
+    <string name="repeat">Повторить</string>
+    <string name="error">Произошла ошибка</string>
+    <string name="search">Поиск</string>
+    <string name="start">Начало</string>
+    <string name="end">Конец</string>
+    <string name="back">Назад</string>
+    <string name="analysis">Анализ</string>
+    <string name="my_history">Моя история</string>
+    <string name="exit">Закрыть</string>
+    <string name="ok">OK</string>
+    <string name="done">Сохранить</string>
+    <string name="close">Отмена</string>
+
+    <string name="currency_rub">Российский рубль</string>
+    <string name="currency_usd">Американский доллар</string>
+    <string name="currency_eur">Евро</string>
+    <string name="currency_gbp">Фунт стерлингов</string>
+    <string name="currency_jpy">Японская иена</string>
+    <string name="currency_unknown">Неизвестная валюта</string>
+
+    <string name="failure_network">Проблемы с сетью. Проверьте ваше подключение</string>
+    <string name="failure_bad_request">Неверный запрос</string>
+    <string name="failure_unauthorized">Необходима авторизация</string>
+    <string name="failure_forbidden">Доступ запрещен</string>
+    <string name="failure_not_found">Данные не найдены</string>
+    <string name="failure_server">Ошибка сервера. Попробуйте позже</string>
+    <string name="failure_unknown">Произошла неизвестная ошибка</string>
+    <string name="select_time">Выберите время</string>
+
+    <string name="transaction_updated_successfully">Транзакция успешно обновлена</string>
+    <string name="my_income">Мои доходы</string>
+    <string name="my_expenses">Мои расходы</string>
+    <string name="delete_income">Удалить доход</string>
+    <string name="delete_expense">Удалить расход</string>
+    <string name="category">Статья</string>
+    <string name="date">Дата</string>
+    <string name="time">Время</string>
+    <string name="comment">Комментарий</string>
+    <string name="transaction_created_successfully">Транзакция успешно создана</string>
+    <string name="error_empty_account">Пожалуйста, выберите счет</string>
+    <string name="error_empty_category">Пожалуйста, выберите категорию</string>
+    <string name="transaction_deleted_successfully">Транзакция успешно удалена</string>
+    <string name="my_transaction">Моя транзакция</string>
+    <string name="delete_transaction">Удалить транзакцию</string>
+</resources>
