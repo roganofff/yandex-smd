@@ -29,7 +29,7 @@ android {
 
         buildConfigField(
             "String",
-            "MONEYTRACE_BASE_URL",
+            "FINANCIALAWARENESS_BASE_URL",
             "\"https://shmr-finance.ru/api/v1/\""
         )
     }

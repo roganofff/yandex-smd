@@ -1,4 +1,4 @@
-package quo.yandex.financialawareness.categories.impl.data.remote.remote.pojo.response
+package quo.yandex.financialawareness.categories.impl.data.remote.pojo.response
 
 import com.google.gson.annotations.SerializedName
 

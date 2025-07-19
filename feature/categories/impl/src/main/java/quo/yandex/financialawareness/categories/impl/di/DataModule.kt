@@ -5,7 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import quo.yandex.financialawareness.categories.api.repository.CategoryRepository
-import quo.yandex.financialawareness.categories.impl.data.remote.repository.CategoryRepositoryImpl
+import quo.yandex.financialawareness.categories.impl.data.repository.CategoryRepositoryImpl
 import javax.inject.Singleton
 
 @Module

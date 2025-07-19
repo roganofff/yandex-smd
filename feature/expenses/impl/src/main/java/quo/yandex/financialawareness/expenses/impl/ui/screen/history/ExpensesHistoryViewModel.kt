@@ -17,6 +17,8 @@ import quo.yandex.financialawareness.expenses.impl.ui.screen.history.state.Expen
 import quo.yandex.financialawareness.expenses.impl.ui.screen.history.state.ExpensesHistoryEvent
 import quo.yandex.financialawareness.expenses.impl.ui.screen.history.state.ExpensesHistoryState
 import quo.yandex.financialawareness.expenses.impl.ui.mapper.ExpenseUIMapper
+import quo.yandex.financialawareness.transactions.api.model.TransactionType
+import quo.yandex.financialawareness.transactions.api.usecase.GetTransactionsByPeriodUseCase
 import quo.yandex.financialawareness.ui.base.BaseViewModel
 import quo.yandex.financialawareness.util.DateHelper
 import quo.yandex.financialawareness.util.result.Result
@@ -24,7 +26,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ExpensesHistoryViewModel @Inject constructor(
-    private val getExpensesByPeriodUseCase: GetExpensesByPeriodUseCase,
+    private val getTransactionsByPeriodUseCase: GetTransactionsByPeriodUseCase,
     private val expenseUIMapper: ExpenseUIMapper,
     private val resourceProvider: ResourceProvider
 ) : BaseViewModel<ExpensesHistoryState, ExpensesHistoryEvent, ExpensesHistoryEffect>() {
@@ -97,9 +99,10 @@ class ExpensesHistoryViewModel @Inject constructor(
             _state.update { it.copy(isLoading = true) }
             delay(1000)
 
-            when (val result = getExpensesByPeriodUseCase(
+            when (val result = getTransactionsByPeriodUseCase(
                 startDate = DateHelper.parseDisplayDate(state.value.startDate),
                 endDate = DateHelper.parseDisplayDate(state.value.endDate),
+                transactionType = TransactionType.INCOME
             )) {
                 is Result.Success -> {
                     val expenses = result.data

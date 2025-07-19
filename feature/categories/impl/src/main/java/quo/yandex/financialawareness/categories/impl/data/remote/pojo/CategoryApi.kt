@@ -1,8 +1,8 @@
-package quo.yandex.financialawareness.categories.impl.data.remote.remote
+package quo.yandex.financialawareness.categories.impl.data.remote.pojo
 
+import quo.yandex.financialawareness.categories.impl.data.remote.pojo.response.CategoryResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
-import quo.yandex.financialawareness.categories.impl.data.remote.remote.pojo.response.CategoryResponse
 
 interface CategoryApi {
 

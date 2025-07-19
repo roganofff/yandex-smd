@@ -4,6 +4,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavGraphBuilder
 import quo.yandex.financialawareness.account.impl.ui.nav.AccountNav
+import quo.yandex.financialawareness.analysis.impl.ui.nav.AnalysisNav
 import quo.yandex.financialawareness.categories.impl.ui.nav.CategoriesNav
 import quo.yandex.financialawareness.expenses.impl.ui.nav.ExpensesNav
 import quo.yandex.financialawareness.income.impl.ui.nav.IncomeNav
@@ -22,7 +23,8 @@ class NavigationManagerImpl @Inject constructor() : NavigationManager {
         IncomeNav,
         ExpensesNav,
         CategoriesNav,
-        TransactionNav
+        TransactionNav,
+        AnalysisNav
     )
 
     override fun buildNavGraph(
@@ -70,6 +72,11 @@ class NavigationManagerImpl @Inject constructor() : NavigationManager {
     override fun navigateToTransactionUpdate(navController: NavController, transactionId: Int) {
         val transactionType = determineTransactionType(navController)
         TransactionNav.navigateToUpdate(navController, transactionId, transactionType)
+    }
+
+    override fun navigateToAnalysis(navController: NavController) {
+        val transactionType = determineTransactionType(navController)
+        AnalysisNav.navigateToAnalysis(navController, transactionType)
     }
 
     private fun determineTransactionType(navController: NavController): TransactionType {

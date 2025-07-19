@@ -20,7 +20,7 @@ import java.util.Date
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MTDatePicker(
+fun FADatePicker(
     selectedDate: Date?,
     onDateSelected: (Date) -> Unit,
     onDismiss: () -> Unit,
