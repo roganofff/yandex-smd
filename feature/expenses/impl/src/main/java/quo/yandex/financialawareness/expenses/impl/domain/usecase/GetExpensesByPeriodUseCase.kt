@@ -10,7 +10,6 @@ import quo.yandex.financialawareness.util.DateHelper
 import quo.yandex.financialawareness.util.result.Result
 import java.util.Date
 import javax.inject.Inject
-import kotlin.collections.get
 
 class GetExpensesByPeriodUseCase @Inject constructor(
     private val accountRepository: AccountRepository,

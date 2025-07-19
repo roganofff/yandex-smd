@@ -16,6 +16,7 @@ interface NavigationManager {
     fun navigateToAccount(navController: NavController)
     fun navigateToTransactionCreate(navController: NavController)
     fun navigateToTransactionUpdate(navController: NavController, transactionId: Int)
+    fun navigateToAnalysis(navController: NavController)
 
     fun navigateBack(navController: NavController)
 }

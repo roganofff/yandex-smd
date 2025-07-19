@@ -66,6 +66,7 @@ dependencies {
     implementation(project(path = ":common:util"))
     implementation(project(path = ":common:network"))
 
+    implementation(project(path = ":feature:analysis:impl"))
     implementation(project(path = ":feature:transactions:api"))
     implementation(project(path = ":feature:transactions:impl"))
     implementation(project(path = ":feature:account:api"))
@@ -98,4 +99,8 @@ dependencies {
     implementation(libs.hilt)
     implementation(libs.hilt.compose)
     ksp(libs.hilt.compiler)
+
+    implementation(libs.room)
+    implementation(libs.room.ktx)
+    ksp(libs.room.ksp)
 }

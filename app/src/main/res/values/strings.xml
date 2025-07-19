@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MoneyTrace</string>
+    <string name="app_name">FinanicalAwareness</string>
     <string name="account">Счет</string>
     <string name="income">Доходы</string>
     <string name="stats">Статьи</string>

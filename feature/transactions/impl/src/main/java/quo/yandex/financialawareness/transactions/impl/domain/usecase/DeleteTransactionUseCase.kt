@@ -13,7 +13,7 @@ class DeleteTransactionUseCase @Inject constructor(
 ) {
     suspend operator fun invoke(id: Int): Result<Unit> {
         return withContext(dispatcher) {
-            when (val result = transactionRepository.deleteTransactionBuId(id = id)) {
+            when (val result = transactionRepository.deleteTransactionById(id = id)) {
                 is Result.Success -> {
                     Result.Success(result.data)
                 }

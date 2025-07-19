@@ -9,7 +9,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import quo.yandex.financialawareness.account.impl.ui.nav.AccountNav
+import quo.yandex.financialawareness.analysis.impl.ui.nav.AnalysisNav
 import quo.yandex.financialawareness.categories.impl.ui.nav.CategoriesNav
 import quo.yandex.financialawareness.expenses.impl.ui.nav.ExpensesNav
 import quo.yandex.financialawareness.income.impl.ui.nav.IncomeNav
@@ -17,21 +19,42 @@ import quo.yandex.financialawareness.navigation.BottomNavIds
 import quo.yandex.financialawareness.navigation.BottomNavItem
 import quo.yandex.financialawareness.navigation.NavigationManager
 import quo.yandex.financialawareness.settings.impl.ui.nav.SettingsNav
+import quo.yandex.financialawareness.transactions.api.model.TransactionType
+import quo.yandex.financialawareness.transactions.impl.ui.nav.TransactionNav
 import quo.yandex.financialawareness.ui.R
 
 @Composable
 fun BottomNavigationBar(
     bottomNavItems: List<BottomNavItem>,
-    currentRoute: String?
+    navController: NavController
 ) {
+    val currentBackStackEntry = navController.currentBackStackEntryAsState()
+    val currentRoute = currentBackStackEntry.value?.destination?.route
+
+    val transactionTypeUsed = (currentRoute?.startsWith(TransactionNav.navGraph.route) == true
+            || currentRoute?.startsWith(AnalysisNav.navGraph.route) == true)
+
+    val transactionType = if(transactionTypeUsed)  {
+        val transactionTypeArg = navController.currentBackStackEntry
+            ?.arguments?.getString("transactionType")
+        TransactionType.fromString(transactionTypeArg ?: "")
+    } else null
+
     NavigationBar {
         bottomNavItems.forEach { item ->
-            val isSelected = when(item.id) {
-                BottomNavIds.Account.id -> currentRoute?.startsWith(AccountNav.navGraph.route) == true
-                BottomNavIds.Income.id -> currentRoute?.startsWith(IncomeNav.navGraph.route) == true
-                BottomNavIds.Settings.id -> currentRoute?.startsWith(SettingsNav.navGraph.route) == true
-                BottomNavIds.Expenses.id -> currentRoute?.startsWith(ExpensesNav.navGraph.route) == true
-                BottomNavIds.Categories.id -> currentRoute?.startsWith(CategoriesNav.navGraph.route) == true
+            val isSelected = when {
+                transactionTypeUsed -> {
+                    when (transactionType) {
+                        TransactionType.INCOME -> item.id == BottomNavIds.Income.id
+                        TransactionType.EXPENSE -> item.id == BottomNavIds.Expenses.id
+                        else -> false
+                    }
+                }
+                item.id == BottomNavIds.Account.id -> currentRoute?.startsWith(AccountNav.navGraph.route) == true
+                item.id == BottomNavIds.Income.id -> currentRoute?.startsWith(IncomeNav.navGraph.route) == true
+                item.id == BottomNavIds.Settings.id -> currentRoute?.startsWith(SettingsNav.navGraph.route) == true
+                item.id == BottomNavIds.Expenses.id -> currentRoute?.startsWith(ExpensesNav.navGraph.route) == true
+                item.id == BottomNavIds.Categories.id -> currentRoute?.startsWith(CategoriesNav.navGraph.route) == true
                 else -> false
             }
 

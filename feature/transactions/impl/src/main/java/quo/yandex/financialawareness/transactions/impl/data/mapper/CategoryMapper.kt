@@ -5,8 +5,7 @@ import quo.yandex.financialawareness.transactions.impl.data.remote.pojo.response
 import javax.inject.Inject
 
 class CategoryMapper @Inject constructor() {
-
-     fun map(input: CategoryResponse?): CategoryModel {
+    fun mapNetworkToDomain(input: CategoryResponse?): CategoryModel {
         return input?.let {
             CategoryModel (
                 id = it.id ?: 0,
@@ -15,5 +14,19 @@ class CategoryMapper @Inject constructor() {
                 isIncome = it.isIncome ?: false
             )
         } ?: CategoryModel()
+    }
+
+    fun mapEntityToDomain(
+        id: Int,
+        name: String,
+        emoji: String,
+        isIncome: Boolean
+    ): CategoryModel {
+        return CategoryModel(
+            id = id,
+            name = name,
+            emoji = emoji,
+            isIncome = isIncome
+        )
     }
 }

@@ -23,7 +23,7 @@ import quo.yandex.financialawareness.income.impl.ui.screen.history.state.IncomeH
 import quo.yandex.financialawareness.ui.component.FAIcon
 import quo.yandex.financialawareness.ui.component.FAIconButton
 import quo.yandex.financialawareness.ui.component.FACenterAlignedTopAppBar
-import quo.yandex.financialawareness.ui.component.MTDatePicker
+import quo.yandex.financialawareness.ui.component.FADatePicker
 import quo.yandex.financialawareness.ui.component.FAErrorDialog
 import quo.yandex.financialawareness.ui.component.FAPeriodItem
 import quo.yandex.financialawareness.util.DateHelper
@@ -32,6 +32,7 @@ import quo.yandex.financialawareness.util.DateHelper
 @Composable
 fun IncomeHistoryScreen(
     onBackClick: () -> Unit,
+    onAnalysisClick: () -> Unit,
     onIncomeClick: (Int) -> Unit,
     viewModel: IncomeHistoryViewModel = hiltViewModel()
 ) {
@@ -64,7 +65,7 @@ fun IncomeHistoryScreen(
             },
             actions = {
                 FAIconButton(
-                    onClick = { }
+                    onClick = onAnalysisClick
                 ) {
                     FAIcon(
                         painter = painterResource(R.drawable.ic_analysis),
@@ -117,7 +118,7 @@ fun IncomeHistoryScreen(
     }
 
     if (state.showStartDatePicker) {
-        MTDatePicker(
+        FADatePicker(
             selectedDate = DateHelper.parseDisplayDate(state.startDate),
             onDateSelected = { date ->
                 viewModel.reduce(IncomeHistoryEvent.OnStartDateSelected(date))
@@ -130,7 +131,7 @@ fun IncomeHistoryScreen(
     }
 
     if (state.showEndDatePicker) {
-        MTDatePicker(
+        FADatePicker(
             selectedDate = DateHelper.parseDisplayDate(state.endDate),
             onDateSelected = { date ->
                 viewModel.reduce(IncomeHistoryEvent.OnEndDateSelected(date))

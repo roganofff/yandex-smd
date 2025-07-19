@@ -13,18 +13,20 @@ import quo.yandex.financialawareness.domain.provider.ResourceProvider
 import quo.yandex.financialawareness.income.impl.R
 import quo.yandex.financialawareness.util.result.FailureReason
 import quo.yandex.financialawareness.util.result.Result
-import quo.yandex.financialawareness.income.impl.domain.usecase.GetIncomeByPeriodUseCase
 import quo.yandex.financialawareness.income.impl.ui.mapper.IncomeUIMapper
 import quo.yandex.financialawareness.income.impl.ui.screen.history.state.IncomeHistoryEffect
 import quo.yandex.financialawareness.income.impl.ui.screen.history.state.IncomeHistoryEvent
 import quo.yandex.financialawareness.income.impl.ui.screen.history.state.IncomeHistoryState
+import quo.yandex.financialawareness.transactions.api.model.TransactionType
+import quo.yandex.financialawareness.transactions.api.usecase.GetTransactionsByPeriodUseCase
+
 import quo.yandex.financialawareness.ui.base.BaseViewModel
 import quo.yandex.financialawareness.util.DateHelper
 import javax.inject.Inject
 
 @HiltViewModel
 class IncomeHistoryViewModel @Inject constructor(
-    private val getIncomeByPeriodUseCase: GetIncomeByPeriodUseCase,
+    private val getTransactionsByPeriodUseCase: GetTransactionsByPeriodUseCase,
     private val incomeUIMapper: IncomeUIMapper,
     private val resourceProvider: ResourceProvider
 ) : BaseViewModel<IncomeHistoryState, IncomeHistoryEvent, IncomeHistoryEffect>() {
@@ -97,9 +99,10 @@ class IncomeHistoryViewModel @Inject constructor(
             _state.update { it.copy(isLoading = true) }
             delay(1000)
 
-            when (val result = getIncomeByPeriodUseCase(
+            when (val result = getTransactionsByPeriodUseCase(
                 startDate = DateHelper.parseDisplayDate(state.value.startDate),
                 endDate = DateHelper.parseDisplayDate(state.value.endDate),
+                transactionType = TransactionType.INCOME
             )) {
                 is Result.Success -> {
                     val income = result.data

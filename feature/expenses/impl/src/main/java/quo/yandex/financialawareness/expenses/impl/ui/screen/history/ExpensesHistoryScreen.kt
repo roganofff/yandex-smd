@@ -21,7 +21,7 @@ import quo.yandex.financialawareness.expenses.impl.ui.screen.history.component.E
 import quo.yandex.financialawareness.expenses.impl.ui.screen.history.component.ExpensesHistoryTotalShimmerItem
 import quo.yandex.financialawareness.expenses.impl.ui.screen.history.state.ExpensesHistoryEvent
 import quo.yandex.financialawareness.ui.component.FACenterAlignedTopAppBar
-import quo.yandex.financialawareness.ui.component.MTDatePicker
+import quo.yandex.financialawareness.ui.component.FADatePicker
 import quo.yandex.financialawareness.ui.component.FAErrorDialog
 import quo.yandex.financialawareness.ui.component.FAIcon
 import quo.yandex.financialawareness.ui.component.FAIconButton
@@ -32,6 +32,7 @@ import quo.yandex.financialawareness.util.DateHelper
 @Composable
 fun ExpensesHistoryScreen(
     onBackClick: () -> Unit,
+    onAnalysisClick: () -> Unit,
     onExpenseClick: (Int) -> Unit,
     viewModel: ExpensesHistoryViewModel = hiltViewModel()
 ) {
@@ -64,7 +65,7 @@ fun ExpensesHistoryScreen(
             },
             actions = {
                 FAIconButton(
-                    onClick = { }
+                    onClick = onAnalysisClick
                 ) {
                     FAIcon(
                         painter = painterResource(R.drawable.ic_analysis),
@@ -117,7 +118,7 @@ fun ExpensesHistoryScreen(
     }
 
     if (state.showStartDatePicker) {
-        MTDatePicker(
+        FADatePicker(
             selectedDate = DateHelper.parseDisplayDate(state.startDate),
             onDateSelected = { date ->
                 viewModel.reduce(ExpensesHistoryEvent.OnStartDateSelected(date))
@@ -130,7 +131,7 @@ fun ExpensesHistoryScreen(
     }
 
     if (state.showEndDatePicker) {
-        MTDatePicker(
+        FADatePicker(
             selectedDate = DateHelper.parseDisplayDate(state.endDate),
             onDateSelected = { date ->
                 viewModel.reduce(ExpensesHistoryEvent.OnEndDateSelected(date))

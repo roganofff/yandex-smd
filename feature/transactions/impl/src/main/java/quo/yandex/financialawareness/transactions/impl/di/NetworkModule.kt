@@ -22,7 +22,7 @@ class NetworkModule {
         converterFactory: GsonConverterFactory,
     ): TransactionApi {
         val retrofit = Retrofit.Builder()
-            .baseUrl(BuildConfig.MONEYTRACE_BASE_URL)
+            .baseUrl(BuildConfig.FINANCIALAWARENESS_BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(converterFactory)
             .build()

@@ -42,6 +42,9 @@ IncomeNav: FeatureNav {
                     onBackClick = {
                         navigationManager.navigateBack(navController)
                     },
+                    onAnalysisClick = {
+                        navigationManager.navigateToAnalysis(navController)
+                    },
                     onIncomeClick = { id ->
                         navigationManager.navigateToTransactionUpdate(navController, id)
                     },

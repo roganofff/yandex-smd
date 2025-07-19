@@ -24,7 +24,7 @@ import quo.yandex.financialawareness.transactions.impl.ui.component.TransactionS
 import quo.yandex.financialawareness.transactions.impl.ui.screen.create.state.TransactionCreateEffect
 import quo.yandex.financialawareness.transactions.impl.ui.screen.create.state.TransactionCreateEvent
 import quo.yandex.financialawareness.ui.component.FACenterAlignedTopAppBar
-import quo.yandex.financialawareness.ui.component.MTDatePicker
+import quo.yandex.financialawareness.ui.component.FADatePicker
 import quo.yandex.financialawareness.ui.component.FAErrorDialog
 import quo.yandex.financialawareness.ui.component.FAIcon
 import quo.yandex.financialawareness.ui.component.FAIconButton
@@ -142,7 +142,7 @@ fun TransactionCreateScreen(
     }
 
     if (state.showDatePicker) {
-        MTDatePicker(
+        FADatePicker(
             selectedDate = DateHelper.parseDisplayDate(state.transaction.date),
             onDateSelected = { date ->
                 viewModel.reduce(TransactionCreateEvent.OnDateSelected(date))
